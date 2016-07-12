@@ -1,0 +1,17 @@
+<div class="page-header">
+    <h3>New Article</h3>
+</div>
+<form name="NewsCreateForm" ng-submit="newsCreate.submit()" novalidate>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="newsCreate.article.Title" ng-required="true"/>
+    </div>
+    <div class="form-group">
+        <ordercloud-file-upload model="newsCreate.article" keyname="image" label="Image" extensions="jpg, png, gif, jpeg, tiff"></ordercloud-file-upload>
+    </div>
+    <div class="form-group">
+        <label>Body</label>
+        <text-angular ng-model="newsCreate.article.Body"></text-angular>
+    </div>
+    <button type="submit" class="am-btn am-primary" ng-disabled="createNewsArticle.$invalid">Publish</button>
+</form>

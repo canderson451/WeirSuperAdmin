@@ -82,6 +82,10 @@ function BaseConfig( $stateProvider, $injector ) {
                         }
                     }
                 });
+                components.buyerSpecific.push({
+                    Display: 'News',
+                    StateRef: 'news'
+                })
                 deferred.resolve(components);
                 return deferred.promise;
             }

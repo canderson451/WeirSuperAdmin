@@ -1,4 +1,5 @@
 angular.module( 'orderCloud', [
+    'textAngular',
     'ngSanitize',
     'ngAnimate',
     'ngMessages',
@@ -11,6 +12,7 @@ angular.module( 'orderCloud', [
     'LocalForageModule',
     'toastr',
     'cgBusy',
+    'firebase',
     'jcs-autoValidate',
     'ordercloud-infinite-scroll',
     'ordercloud-buyer-select',
