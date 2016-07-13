@@ -4,6 +4,7 @@ angular.module( 'orderCloud' )
     .controller('NewsListCtrl', NewsListController)
     .controller('NewsDetailCtrl', NewsDetailController)
     .controller('NewsCreateCtrl', NewsCreateController)
+    .filter('newspreview', newspreview)
 ;
 
 function NewsConfig($stateProvider) {
@@ -138,6 +139,13 @@ function NewsDetailController($state, NewsService, NewsArticle) {
     vm.editArticle = function() {
         vm.editing = true;
     };
+
+    vm.submit = function() {
+        NewsService.Update(vm.newsArticle)
+            .then(function() {
+                vm.editing = false;
+            });
+    };
 }
 
 function NewsCreateController($state, $firebaseObject, NewsService, firebaseurl) {
@@ -162,4 +170,22 @@ function NewsCreateController($state, $firebaseObject, NewsService, firebaseurl)
         }
         return randomstring;
     }
+}
+
+function newspreview() {
+    return function(text) {
+        var result = '';
+
+        if (text) {
+            var plainText = String(text).replace(/<[^>]+>/gm, '');
+            if (plainText.length > 300) {
+                result = plainText.substr(0, 300) + '...';
+            }
+            else {
+                result = plainText;
+            }
+        }
+
+        return result;
+    };
 }

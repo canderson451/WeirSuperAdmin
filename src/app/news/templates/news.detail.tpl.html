@@ -2,11 +2,11 @@
     <div class="pull-right">
         <button type="button" class="btn btn-default" ui-sref="^" ui-sref-opts="{reload: true}">Back to List</button>
         <button type="button" class="btn btn-danger" ng-click="newsDetail.deleteArticle()">Delete</button>
-        <button type="button" class="btn btn-info" ng-click="newsDetail.editArticle()">Edit</button>
+        <button type="button" class="btn btn-info" ng-if="!newsDetail.editing" ng-click="newsDetail.editArticle()">Edit</button>
     </div>
     <h3>News Article: <span class="text-primary">{{newsDetail.newsArticle.Title}}</span> <small>({{newsDetail.newsArticle.Timestamp | date:'shortDate'}})</small></h3>
 </div>
-<div class="row">
+<div class="row" ng-if="!newsDetail.editing">
     <div class="col-md-12">
         <div class="panel panel-default news-article">
             <div class="panel-body">
@@ -20,3 +20,17 @@
         </div>
     </div>
 </div>
+<form name="NewsEditForm" ng-if="newsDetail.editing" ng-submit="newsDetail.submit()" novalidate>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="newsDetail.newsArticle.Title" ng-required="true"/>
+    </div>
+    <div class="form-group">
+        <ordercloud-file-upload model="newsDetail.newsArticle" keyname="image" label="Image" extensions="jpg, png, gif, jpeg, tiff"></ordercloud-file-upload>
+    </div>
+    <div class="form-group">
+        <label>Body</label>
+        <text-angular ng-model="newsDetail.newsArticle.Body"></text-angular>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right" ng-disabled="NewsEditForm.$invalid">Save</button>
+</form>

@@ -4,13 +4,21 @@
     height: 300px;
     overflow-y: hidden;
   }
+  .news-preview {
+    padding-bottom: 30px;
+    img {
+      margin: auto;
+      max-height: 100px;
+    }
+  }
+  .news-preview-article:hover {
+    color: @brand-primary;
+  }
   .news-article img {
     max-height: 300px;
   }
 }
 
-
-.ta-toolbar .btn-group button[name *= 'html'],
 .ta-toolbar .btn-group button[name *= 'insertImage'],
 .ta-toolbar .btn-group button[name *= 'insertLink'],
 .ta-toolbar .btn-group button[name *= 'insertVideo'] {
