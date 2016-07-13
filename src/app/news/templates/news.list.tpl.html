@@ -5,15 +5,6 @@
     </div>
     <div class="row" ng-if="news.newsArticles">
         <div class="col-md-6 news-preview" ng-repeat="article in news.newsArticles">
-            <!--<div class="panel panel-default news-article-preview" ng-click="news.goToArticle(article)">
-                <div class="panel-heading">
-                    <b><span class="text-primary">{{article.Title}}</span></b>
-                    <small class="pull-right">{{article.Timestamp | date:'shortDate'}}</small>
-                </div>
-                <div class="panel-body">
-                    <span ng-bind-html="article.Body"></span>
-                </div>
-            </div>-->
             <div class="row news-preview-article" ng-click="news.goToArticle(article)">
                 <div class="col-sm-4">
                     <figure>
