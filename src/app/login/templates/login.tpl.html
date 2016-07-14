@@ -1,7 +1,11 @@
 <main id="COMPONENT_Login" ng-switch="login.form">
     <div class="panel panel-default" ng-switch-when="login">
         <form class="panel-body" name="LoginForm" ng-submit="login.submit()" >
-            <h1 class="text-center">Login</h1>
+            <h1 class="text-center">
+                <figure>
+                    <img src="src/assets/images/weir.png">
+                </figure>
+            </h1>
             <div class="form-group">
                 <label for="Username">Username</label>
                 <input type="text" class="form-control" id="Username" ng-model="login.credentials.Username" ng-required="true" />
