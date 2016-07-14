@@ -21,7 +21,7 @@ function UsersConfig( $stateProvider ) {
                     return OrderCloudParameters.Get($stateParams);
                 },
                 UserList: function( OrderCloud, Parameters ) {
-                    return OrderCloud.Users.List( Parameters.search, Parameters.page, Parameters.pageSize || 12, Parameters.searchOn, Parameters.sortBy, Parameters.filters);
+                    return OrderCloud.Users.List( Parameters.UserGroupID, Parameters.search, Parameters.page, Parameters.pageSize || 12, Parameters.searchOn, Parameters.sortBy, Parameters.filters);
                 }
             }
         })
